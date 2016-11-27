@@ -11,10 +11,10 @@ params:
   db:
     default:
         driver: pdo_mysql
-        host: docker
+        host: my_host
         port: 3306
-        username: root
-        password: b1gmac4fr33
+        username: my_username
+        password: my_password
         dbname: my_database
 
   routes:
