@@ -1,0 +1,80 @@
+params:
+
+  app:
+    debug: true
+    defaults:
+      limit: 10
+      offset: 0
+      order:
+        id: ASC
+
+  db:
+    default:
+        driver: pdo_mysql
+        host: docker
+        port: 3306
+        username: root
+        password: b1gmac4fr33
+        dbname: my_database
+
+  routes:
+    -
+      path: '/products'
+      method: 'get'
+      action: 'products.controller:getMultiple'
+    -
+      path: '/products/{id}'
+      method: 'get'
+      action: 'products.controller:getSingle'
+    -
+      path: '/products'
+      method: 'post'
+      action: 'products.controller:post'
+    -
+      path: '/products/{id}'
+      method: 'put'
+      action: 'products.controller:put'
+    -
+      path: '/products/{id}'
+      method: 'delete'
+      action: 'products.controller:delete'
+    -
+      path: '/categories'
+      method: 'get'
+      action: 'categories.controller:getMultiple'
+    -
+      path: '/categories/{id}'
+      method: 'get'
+      action: 'categories.controller:getSingle'
+    -
+      path: '/categories'
+      method: 'post'
+      action: 'categories.controller:post'
+    -
+      path: '/categories/{id}'
+      method: 'put'
+      action: 'categories.controller:put'
+    -
+      path: '/categories/{id}'
+      method: 'delete'
+      action: 'categories.controller:delete'
+    -
+      path: '/prices'
+      method: 'get'
+      action: 'prices.controller:getMultiple'
+    -
+      path: '/prices/{id}'
+      method: 'get'
+      action: 'prices.controller:getSingle'
+    -
+      path: '/prices'
+      method: 'post'
+      action: 'prices.controller:post'
+    -
+      path: '/prices/{id}'
+      method: 'put'
+      action: 'prices.controller:put'
+    -
+      path: '/prices/{id}'
+      method: 'delete'
+      action: 'prices.controller:delete'
