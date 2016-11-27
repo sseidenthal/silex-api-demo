@@ -5,6 +5,7 @@ $loader = require __DIR__ . "/vendor/autoload.php";
 use App\Providers\EntityBuilderProvider;
 use App\Providers\YamlParametersProvider;
 use App\Providers\ResponseBuilderProvider;
+use Silex\Provider\MonologServiceProvider;
 use App\Providers\CriteriaBuilderProvider;
 use Silex\Provider\DoctrineServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
@@ -12,6 +13,8 @@ use Doctrine\Common\Annotations\AnnotationRegistry;
 use Saxulum\Validator\Provider\SaxulumValidatorProvider;
 use JDesrosiers\Silex\Provider\JmsSerializerServiceProvider;
 use Dflydev\Provider\DoctrineOrm\DoctrineOrmServiceProvider;
+
+date_default_timezone_set('Europe/Berlin');
 
 $app = new \Silex\Application();
 
@@ -58,5 +61,11 @@ $app->register(new ValidatorServiceProvider());
 
 /* used for annotations constrains */
 $app->register(new SaxulumValidatorProvider());
+
+$app->register(new MonologServiceProvider(), array(
+    'monolog.name' => "application",
+    'monolog.level' => \Monolog\Logger::ERROR,
+    'monolog.logfile' => __DIR__ . '/logs/errors.log',
+));
 
 AnnotationRegistry::registerLoader([$loader, 'loadClass']);

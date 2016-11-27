@@ -14,6 +14,10 @@ $app->error(function (\Exception $e, $code) use ($app) {
 
     /* catch Exceptions */
     if (!empty($e->getMessage())) {
+
+        $app['monolog']->addError($e->getMessage());
+        $app['monolog']->addError($e->getTraceAsString());
+
         return new JsonResponse(["message" => $e->getMessage()], 400);
     }
 
