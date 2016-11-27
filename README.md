@@ -7,7 +7,7 @@
 - create an Endpoint for a Doctrine Entity with POST, PUT, DELETE, GET SINGLE, GET MULTIPLE (with filters, sorting ...) in 2min (i swear :D)
 - contains default controller which fits most needs
 - uses Doctrine ORM with Annotations
-- uses Symfony Validations with Annotation
+- uses Symfony Validations with Annotations
 - uses JMS Serializer with Annotations for advanced serialization
 - uses EntityBuilder (builds an entity from json)
 - uses ResponseBuilder (build JSON Response)
